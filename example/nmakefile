@@ -1,0 +1,12 @@
+CC=cl.exe
+CFLAGS=/nologo /MT /W3 /GX /O2 /I "../lib" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fo".\\" /Fd".\\" /FD /c 
+
+LINK=link.exe
+LFLAGS=ole32.lib setupapi.lib /nologo /subsystem:console /incremental:no /machine:I386
+
+all: fsascan.c
+	$(CC) $(CFLAGS) fsascan.c
+	$(LINK) $(LFLAGS) /out:fsascan.exe fsascan.obj ..\lib\windows\fsa.lib
+
+clean:
+	del *.obj *.exe *.idb
