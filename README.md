@@ -25,7 +25,7 @@ output will be saved in 'rawdata/outputFilename.txt' and 'path/to/dropbox/bodiTr
 - Add header information to output file
 - .m file to read txt file into matlab
 - Modify Makefile and add configuration script
--- Purpose is to modify pathnames (esp. Dropbox path) and manage dependcies according to user setup
+-- *Purpose is to modify pathnames (esp. Dropbox path) and manage dependcies according to user setup
 - (optional) output file as .mat file for reading into Matlab
 
 
