@@ -15,7 +15,10 @@ void main() {
 	fsat7Initialize();
 	t7 = fsat7Create(0, 0);
 	signal(SIGINT, intHandler);
+	bool fsaConnected=false;
+
 	if (t7) {
+		fsaConnected=true;
 		int c, columns = fsat7GetColumnCount(t7);
 		int r, rows = fsat7GetRowCount(t7);
 		values = malloc(columns * rows * sizeof(float));
@@ -46,10 +49,12 @@ void main() {
 			}
 			else puts("Failed to allocate value buffer.");
 		}
-		free(values);
 	}
 	else puts("Failed to connect to a sensor array.");
-	fsat7Destroy(t7);
+	if(fsaConnected==true){
 	printf("Process interrupted\n");
+	free(values);
+	fsat7Destroy(t7);
+	}
 	fsat7Uninitialize();
 }
